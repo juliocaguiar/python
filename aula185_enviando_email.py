@@ -11,7 +11,7 @@ from dotenv import load_dotenv  # type: ignore
 load_dotenv()
 
 # Caminho arquivo HTML
-CAMINHO_HTML = pathlib.Path(__file__).parent / 'aula185.html'
+CAMINHO_HTML = pathlib.Path(__file__).parent / 'aula185_modelo_email.html'
 
 # Dados do remetente e destinatário
 remetente = os.getenv('FROM_EMAIL', '')
@@ -35,7 +35,7 @@ mime_multipart['from'] = remetente
 mime_multipart['to'] = destinatario
 mime_multipart['subject'] = 'Este é o assunto do e-mail'
 
-corpo_email = MIMEText(texto_email, 'html', 'utf-8')
+corpo_email = MIMEText(texto_email, 'html', 'utf8')
 mime_multipart.attach(corpo_email)
 
 # Envia o e-mail
